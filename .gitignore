@@ -1,6 +1,7 @@
 # addition files
 *.joblib
-promprog/
+promprog/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

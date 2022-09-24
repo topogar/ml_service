@@ -8,8 +8,8 @@ from .model import train_xgb_model, run_model
 # @click.command()
 # @click.option("--param-name", required=False, type=...)
 def train_pipeline():
-    X_train, y_train = preprocess_data(TRAIN_DATA_PATH)
-    X_test, y_test = preprocess_data(TEST_DATA_PATH)
+    X_train, y_train = preprocess_data(df_path=TRAIN_DATA_PATH)
+    X_test, y_test = preprocess_data(df_path=TEST_DATA_PATH)
 
     model = train_xgb_model(X_train, y_train)
     print("Model has trained!")
