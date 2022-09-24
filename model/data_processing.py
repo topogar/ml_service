@@ -55,9 +55,9 @@ def preprocess_msg(msg, stop_words=stop_words, stemmer=stemmer):
     return msg
 
 
-def preprocess_data(file_path):
-    
-    df = pd.read_csv(file_path, sep=SEP)
+def preprocess_data(df=None, df_path=None):
+    if df is None:
+        df = pd.read_csv(df_path, sep=SEP)
     
     df['message'] = df['message'].apply(preprocess_msg)
     df['target'] = df['target'].apply(preprocess_label)

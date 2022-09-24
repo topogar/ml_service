@@ -8,3 +8,9 @@ curl -X POST http://localhost:9001/forward -d '{"message": "URGENT! Your mobile 
 
 ## CURL /forward 400
 curl -X POST http://localhost:9001/forward -d '{"messssage": None}' -H "Content-Type: application/json"
+
+## CURL /forward_batch 200
+curl -X POST http://localhost:9001/forward_batch -H "Content-Type:multipart/form-data" -F df=@data/test_data.tsv
+
+## CURL /evaluate 200
+curl -X POST http://localhost:9001/evaluate -H "Content-Type:multipart/form-data" -F df=@data/test_data.tsv

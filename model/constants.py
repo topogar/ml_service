@@ -2,12 +2,12 @@ SEP = "\t"
 SEED = 42
 
 
-DATA_PATH = "../data/data.tsv"
-TRAIN_DATA_PATH = "../data/train_data.tsv"
-TEST_DATA_PATH = "../data/test_data.tsv"
+DATA_PATH = ".data/data.tsv"
+TRAIN_DATA_PATH = "data/train_data.tsv"
+TEST_DATA_PATH = "data/test_data.tsv"
 
 
-PATH_TO_MODEL_DUMP = "model.joblib"
+PATH_TO_MODEL_DUMP = "model/model.joblib"
 
 
 label_to_num = {
