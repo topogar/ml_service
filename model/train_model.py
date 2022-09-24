@@ -1,8 +1,8 @@
-import click # if it will be nececcery to add params in future
+# import click # if it will be nececcery to add params in future
 
-from constants import TRAIN_DATA_PATH, TEST_DATA_PATH
-from data_processing import preprocess_data
-from model import train_xgb_model, run_model
+from .constants import TRAIN_DATA_PATH, TEST_DATA_PATH
+from .data_processing import preprocess_data
+from .model import train_xgb_model, run_model
 
 
 # @click.command()

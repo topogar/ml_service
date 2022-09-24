@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import f1_score
 
 
-from constants import PATH_TO_MODEL_DUMP
+from .constants import PATH_TO_MODEL_DUMP
 
 
 def train_xgb_model(X, y, path_to_save=PATH_TO_MODEL_DUMP):
@@ -22,7 +22,7 @@ def train_xgb_model(X, y, path_to_save=PATH_TO_MODEL_DUMP):
             eval_metric='auc',
         ))
     ])
-    
+
     model.fit(X, y)
     joblib.dump(model, path_to_save)
 

@@ -1,5 +1,3 @@
-import os
-import joblib
 import re
 import string
 import pandas as pd
@@ -11,7 +9,14 @@ from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 
 
-from constants import *
+from .constants import *
+
+
+stop_words = stopwords.words('english')
+stemmer = nltk.SnowballStemmer("english")
+
+
+preprocess_label = lambda label: label_to_num[label]
 
 
 def make_initial_train_test_split(file_path):
@@ -41,7 +46,7 @@ def clean_text(text):
     return text
 
 
-def preprocess_msg(msg, stop_words, stemmer):
+def preprocess_msg(msg, stop_words=stop_words, stemmer=stemmer):
 
     msg = clean_text(msg)
     msg = ' '.join(word for word in msg.split(' ') if word not in stop_words)
@@ -54,14 +59,7 @@ def preprocess_data(file_path):
     
     df = pd.read_csv(file_path, sep=SEP)
     
-    stop_words = stopwords.words('english')
-    stemmer = nltk.SnowballStemmer("english")
-    
-    df['message'] = df['message'].apply(
-        preprocess_msg, 
-        stop_words=stop_words,
-        stemmer=stemmer
-    )
-    df['target'] = df['target'].apply(lambda label: label_to_num[label])
+    df['message'] = df['message'].apply(preprocess_msg)
+    df['target'] = df['target'].apply(preprocess_label)
     
     return df["message"], df["target"]
