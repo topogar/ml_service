@@ -7,7 +7,7 @@ TRAIN_DATA_PATH = "data/train_data.tsv"
 TEST_DATA_PATH = "data/test_data.tsv"
 
 
-PATH_TO_MODEL_DUMP = "model/model.joblib"
+PATH_TO_MODEL_DUMP = "model/saved_models/model.joblib"
 
 
 label_to_num = {
