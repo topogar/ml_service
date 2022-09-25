@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  extract_train_data:
+    cmd: dvc pull data/train_data.tsv.dvc
+  extract_test_data:
+    cmd: dvc pull data/test_data.tsv.dvc
+  train_model:
+    cmd: python3 -m model.scripts.train_model
+    outs:
+    - path: model/saved_models/model.joblib
+      md5: 0ce845b06bba3bb15b0c01c9a5214f65
+      size: 324964
+  inference_model:
+    cmd: python3 -m model.scripts.inference_model
+    deps:
+    - path: model/saved_models/model.joblib
+      md5: 0ce845b06bba3bb15b0c01c9a5214f65
+      size: 324964
+    outs:
+    - path: metrics.json
+      md5: 74615aad859826d5dff328276e2a503f
+      size: 85

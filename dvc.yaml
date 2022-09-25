@@ -1,0 +1,19 @@
+stages:
+  extract_train_data:
+    cmd: dvc pull data/train_data.tsv.dvc
+
+  extract_test_data:
+    cmd: dvc pull data/test_data.tsv.dvc
+
+  train_model:
+    cmd: python3 -m model.scripts.train_model
+    outs: 
+    - model/saved_models/model.joblib
+
+  inference_model:
+    cmd: python3 -m model.scripts.inference_model
+    deps:
+    - model/saved_models/model.joblib
+    metrics:
+    - metrics.json:
+        cache: false

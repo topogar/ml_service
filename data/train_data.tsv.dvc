@@ -1,0 +1,4 @@
+outs:
+- md5: d6306d0d9c115a623e8e5c6b32d1a874
+  size: 354721
+  path: train_data.tsv
