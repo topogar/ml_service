@@ -11,6 +11,9 @@ stages:
       - model/saved_models/model.joblib
     params:
       - model
+    deps:
+      - data/train_data.tsv
+      - data/test_data.tsv
 
   inference_model:
     cmd: python3 -m model.scripts.inference_model
