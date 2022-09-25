@@ -31,8 +31,8 @@
 ## CURL /retrain 200
 `curl -X PUT http://localhost:9002/retrain`
 
-## CURL /deploy/<experiment_id>
+## CURL /deploy/<experiment_id> 200
 `curl http://localhost:9002/deploy/exp_09-26-2022_01-35-51`
 
-## CURL /metrics/<experiment_id>
+## CURL /metrics/<experiment_id> 200
 `curl http://localhost:9002/deploy/exp_09-26-2022_01-35-51`
