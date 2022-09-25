@@ -3,7 +3,7 @@ import json
 
 from ..constants import TRAIN_DATA_PATH, TEST_DATA_PATH
 from ..data_processing import preprocess_data
-from ..model import load_model, train_xgb_model, run_model
+from ..model import load_model, run_model
 
 
 @click.command()

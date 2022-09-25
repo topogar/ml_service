@@ -10,17 +10,11 @@ from sklearn.metrics import f1_score
 from .constants import PATH_TO_MODEL_DUMP
 
 
-def train_xgb_model(X, y, path_to_save=PATH_TO_MODEL_DUMP):
+def train_xgb_model(X, y, xgb_params, path_to_save=PATH_TO_MODEL_DUMP):
     model = Pipeline([
         ('bow', CountVectorizer()), 
         ('tfid', TfidfTransformer()),  
-        ('model', XGBClassifier(
-            learning_rate=0.1,
-            max_depth=7,
-            n_estimators=100,
-            use_label_encoder=False,
-            eval_metric='auc',
-        ))
+        ('model', XGBClassifier(**xgb_params))
     ])
 
     model.fit(X, y)

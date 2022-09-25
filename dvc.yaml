@@ -8,12 +8,14 @@ stages:
   train_model:
     cmd: python3 -m model.scripts.train_model
     outs: 
-    - model/saved_models/model.joblib
+      - model/saved_models/model.joblib
+    params:
+      - model
 
   inference_model:
     cmd: python3 -m model.scripts.inference_model
     deps:
-    - model/saved_models/model.joblib
+      - model/saved_models/model.joblib
     metrics:
-    - metrics.json:
-        cache: false
+      - metrics.json:
+          cache: false
