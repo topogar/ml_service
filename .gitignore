@@ -1,7 +1,7 @@
 # addition files
 *.joblib
 promprog/*
-data/*.tsv
+/data/*.tsv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
