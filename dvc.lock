@@ -6,6 +6,13 @@ stages:
     cmd: dvc pull data/test_data.tsv.dvc
   train_model:
     cmd: python3 -m model.scripts.train_model
+    deps:
+    - path: data/test_data.tsv
+      md5: c6b24ff52b6563e80cdb72b63e54ae80
+      size: 122025
+    - path: data/train_data.tsv
+      md5: 172bd966b5a17e90a81c766682da63da
+      size: 842761
     params:
       params.yaml:
         model:
@@ -16,15 +23,15 @@ stages:
           eval_metric: auc
     outs:
     - path: model/saved_models/model.joblib
-      md5: 27a64f92207c1ae3a190ffcf98fbda2b
-      size: 307216
+      md5: 6cb8eb12707f3a1ae8e3b89dc5d704cf
+      size: 348321
   inference_model:
     cmd: python3 -m model.scripts.inference_model
     deps:
     - path: model/saved_models/model.joblib
-      md5: 27a64f92207c1ae3a190ffcf98fbda2b
-      size: 307216
+      md5: 6cb8eb12707f3a1ae8e3b89dc5d704cf
+      size: 348321
     outs:
     - path: metrics.json
-      md5: 015b059536d591f584948f23d39f2e08
-      size: 85
+      md5: 484555d9227b62889e144019f89cdda2
+      size: 84

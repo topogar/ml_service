@@ -14,3 +14,12 @@ curl -X POST http://localhost:9001/forward_batch -H "Content-Type:multipart/form
 
 ## CURL /evaluate 200
 curl -X POST http://localhost:9001/evaluate -H "Content-Type:multipart/form-data" -F df=@data/test_data.tsv
+
+## CURL /add_data 200
+curl -X PUT http://localhost:9002/add_data -H "Content-Type:multipart/form-data" -F df=@data/test_data.tsv
+
+## CURL /retrain 200
+curl -X PUT http://localhost:9002/retrain
+
+## CURL /deploy/<experiment_id>
+curl http://localhost:9002/deploy/exp_09-26-2022_01-35-51
