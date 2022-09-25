@@ -1,7 +1,7 @@
 # addition files
 *.joblib
 promprog/*
-data/*
+!data/*.dvc
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
